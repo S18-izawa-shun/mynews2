@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+/*
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
 });
+*/
+use \mynews2\app\Http\Controllers\NewsController;
+    Route::get('/news/create' , [NewsController::class , 'add']);
